@@ -55,3 +55,27 @@ void Ordena::bubbleSort(Itens **V, int n){
                 }
             }
 }
+void Ordena::shellSort(Itens **V, int n){
+
+    int h = 1;
+
+    while (h < n){
+        h = 3 * h + 1;
+    }
+
+    while(h >= 1){
+
+            for(int j = h; j<n ; j+=1){
+                Itens *aux = V[j];
+                int i=0;
+
+                for(i=j; (i>=h) && (V[i-h]->getChave()>aux->getChave()); i-=h){
+                    V[i] = V[i-h];
+                }
+                V[i] = aux;
+            }
+
+        h /= 3;
+    }
+
+}

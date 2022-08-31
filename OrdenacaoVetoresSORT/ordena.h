@@ -12,6 +12,7 @@ public:
     void static selectionSort(Itens **V, int n);
     void static insertionSort(Itens **V, int n);
     void static bubbleSort(Itens **V, int n);
+    void static shellSort(Itens **V, int n);
 
 };
 

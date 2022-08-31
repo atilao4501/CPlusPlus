@@ -36,26 +36,31 @@ Itens **testaordena::getVET() const
 }
 Itens **testaordena::ordenarVetor(Itens **vetor, int tam, int modo)
 {
+    tamanho = tam;
+
     if(modo == 1){
-        tamanho = tam;
 
         Ordena::selectionSort(vetor, tam);
 
-        return vetor;
     }
     else if (modo == 2){
-        tamanho = tam;
 
         Ordena::insertionSort(vetor,tam);
-        return vetor;
+
     }
     else if (modo == 3){
-        tamanho = tam;
 
         Ordena::bubbleSort(vetor,tam);
-        return vetor;
+
+    }
+    else if (modo == 4){
+
+        Ordena::shellSort(vetor,tam);
     }
     else throw std::string("Modo nao identificado\n");
+
+
+    return vetor;
 
 }
 

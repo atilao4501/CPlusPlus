@@ -75,7 +75,7 @@ void Ordena::shellSort(Itens **V, int n){
                 V[i] = aux;
             }
 
-        h /= 3;
+        h = (h-1) / 3;
     }
 
 }

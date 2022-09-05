@@ -16,9 +16,14 @@ testaordena::testaordena()
 
 }
 testaordena::~testaordena(){
-    for (int pos=0; pos < tamanho; pos++){
-        delete VET[pos];
-    }
+
+        for (int pos=0; pos < tamanho; pos++){
+            delete VET[pos];
+        }
+
+}
+int testaordena::getTamanho(){
+    return tamanho;
 }
 void testaordena::preencherVetor(Itens **vetor, int tam){
 
@@ -56,6 +61,9 @@ Itens **testaordena::ordenarVetor(Itens **vetor, int tam, int modo)
     else if (modo == 4){
 
         Ordena::shellSort(vetor,tam);
+    }
+    else if (modo == 5){
+        Ordena::mergeSort(vetor,tam);
     }
     else throw std::string("Modo nao identificado\n");
 

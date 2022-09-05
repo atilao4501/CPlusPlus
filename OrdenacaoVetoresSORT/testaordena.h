@@ -14,6 +14,7 @@ public:
     void preencherVetor(Itens **vetor, int tam);
     Itens **getVET() const;
     Itens **ordenarVetor(Itens **vetor, int tam, int modo);
+    int getTamanho();
 
 };
 

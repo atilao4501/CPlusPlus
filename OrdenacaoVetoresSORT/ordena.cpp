@@ -79,3 +79,47 @@ void Ordena::shellSort(Itens **V, int n){
     }
 
 }
+void Ordena::mergeSort(Itens **A, int tam){
+    if(A){
+        Itens **B = new Itens*[tam];
+        int ini = 0;
+        int fim = tam-1;
+        mergeSortR(A, B, ini, fim);
+        delete [] B;
+
+    }
+}
+
+void Ordena::mergeSortR(Itens **A, Itens **B, int ini, int fim){
+    if(fim == ini){
+        return;
+    }
+    else {
+        int meio;
+        meio = (ini + fim)/2;
+        mergeSortR(A, B, ini, meio);
+        mergeSortR(A, B, meio+1, fim);
+        intercala (A, B, ini, meio, fim);
+        return;
+    }
+}
+void Ordena::intercala(Itens **A, Itens **B, int ini, int meio, int fim){
+    int i = ini, j = meio+1, k = ini;
+    while( i < meio+1 && j < fim+1){
+        if (A[i]->getChave() < A[j]->getChave()){
+            B[k] = A[i]; i++; k++;
+        }
+        else {
+            B[k] = A[j]; j++; k++;
+        }
+    }
+    while( i < meio+1){
+        B[k] = A[i]; k++; i++;
+    }
+    while( j < fim+1){
+        B[k] = A[j]; k++; j++;
+    }
+    for(k = ini; k < fim+1; k++){
+        A[k] = B[k];
+    }
+}

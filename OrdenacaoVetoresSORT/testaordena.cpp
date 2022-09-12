@@ -65,6 +65,9 @@ Itens **testaordena::ordenarVetor(Itens **vetor, int tam, int modo)
     else if (modo == 5){
         Ordena::mergeSort(vetor,tam);
     }
+    else if (modo == 6){
+        Ordena::quickSort(vetor,tam);
+    }
     else throw std::string("Modo nao identificado\n");
 
 

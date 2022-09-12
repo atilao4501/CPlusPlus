@@ -123,3 +123,34 @@ void Ordena::intercala(Itens **A, Itens **B, int ini, int meio, int fim){
         A[k] = B[k];
     }
 }
+void Ordena::quickSort(Itens **V, int tam){
+    int inicio = 0, fim =tam -1;
+    quickSortR(V, inicio, fim);
+}
+void Ordena::quickSortR(Itens **vetor, int esq, int dir){
+    Itens *x = nullptr, *aux = nullptr, *t = nullptr;
+    int i = 0, j = 0;
+    if (dir > esq){
+        x = vetor[dir];
+        i = esq;
+        j = dir-1;
+        for (;;) {
+            aux = vetor[i];
+            while(i < dir && aux->getChave() < x->getChave()){
+                i++; aux = vetor[i];
+            }
+            aux = vetor[j];
+            while (j>= esq && aux->getChave() > x->getChave()){
+                j--;
+                aux = vetor[j];
+            }
+            if (i >= j) break;
+            t = vetor[i]; vetor[i] = vetor[j]; vetor[j] = t;
+            i++; j--;
+
+        }
+        t = vetor[i]; vetor[i] = vetor[dir]; vetor[dir] = t;
+        quickSortR(vetor, esq, i-1);
+        quickSortR(vetor, i+1, dir);
+    }
+}

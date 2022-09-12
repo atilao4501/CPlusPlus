@@ -16,6 +16,8 @@ public:
     void static mergeSort(Itens **A, int tam);
     void static mergeSortR(Itens **A, Itens **B, int ini, int fim);
     void static intercala(Itens **A, Itens **B, int ini, int meio, int fim);
+    void static quickSort(Itens **V, int tam);
+    void static quickSortR(Itens **vetor, int esq, int dir);
 
 };
 

@@ -24,7 +24,7 @@ int main()
             }
 
             int modo;
-            std::cout << "\n\n 1-SelectionSort \n 2-InsertionSort \n 3-BubbleSort \n 4-ShellSort \n\n Selecione:";
+            std::cout << "\n\n 1-SelectionSort \n 2-InsertionSort \n 3-BubbleSort \n 4-ShellSort \n 5-MergeSort \n 6-QuickSort \n\n Selecione:";
             std::cin >> modo;
 
             double time_spent = 0.0;

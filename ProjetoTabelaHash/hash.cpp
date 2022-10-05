@@ -15,7 +15,9 @@ int hash::funcaoHash(int chave){
 }
 
 void hash::inserir(afa::LLDE<aluno> L[],aluno aluno){
-    int id = funcaoHash(std::stoi(aluno.getMatricula()));
+    std::string valor;
+    valor = aluno.getNome()+aluno.getMae();
+    int id = funcaoHash(valor.size());
     L[id].inserirFim(aluno);
 }
 void hash::remover(afa::LLDE<aluno> L[], aluno aluno){
@@ -24,9 +26,11 @@ void hash::remover(afa::LLDE<aluno> L[], aluno aluno){
     L[id].buscarRemoverAluno(aluno);
 }
 
-aluno hash::busca(afa::LLDE<aluno> L[], std::string valor){
-    int id = funcaoHash(std::stoi(valor));
-    return L[id].buscarMatricula(valor);
+aluno hash::busca(afa::LLDE<aluno> L[], std::string nome, std::string mae, std::string mat){
+    std::string valor;
+    valor = nome+mae;
+    int id = funcaoHash(valor.size());
+    return L[id].buscarAluno(nome, mae,mat);
 
 }
 

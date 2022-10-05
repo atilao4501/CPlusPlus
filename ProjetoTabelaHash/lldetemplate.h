@@ -34,7 +34,7 @@ public:
 
    T buscarElemento(T valor);
    int buscarNome(std::string valor);
-   int buscarMae(std::string valor);
+   aluno buscarAluno(std::string nome, std::string mae, std::string mat);
    aluno buscarMatricula(std::string valor);
    int buscarEndereco(std::string valor);
 
@@ -112,16 +112,19 @@ int LLDE<T>::buscarNome(std::string valor){
 }
 
 template<typename T>
-int LLDE<T>::buscarMae(std::string valor){
+aluno LLDE<T>::buscarAluno(std::string nome, std::string mae, std::string mat){
     NO<aluno> *aux = inicio;
-    while(aux && aux->getDado().getMae() != valor){
+    while(aux && aux->getDado().getMae() != mae && aux->getDado().getNome() != nome && aux->getDado().getMatricula() != mat){
         aux = aux->getProximo();
 
     }
     if (aux){
-        return 1;
+        return aux->getDado();
     }
-          else return 0;
+    else {
+        aluno naodeu("","","-1","");
+        return naodeu;
+    }
 }
 
 template<typename T>
@@ -166,6 +169,7 @@ void LLDE<T>::imprimirListaAlunos(){
 
     for (int i = 0; i < quantidadeElementos; i++){
         std::cout << " - " << aux->getDado().getNome() << " " << aux->getDado().getMae() << " " << aux->getDado().getMatricula() << " " << aux->getDado().getEndereco() << " ";
+        aux = aux->getProximo();
         std::cout << " -FIM- ";
     }
 }
@@ -453,7 +457,7 @@ T LLDE<T>::operator[](int pos) const{
     if (pos == 0){
         return inicio->getDado();
     }
-    if (pos == quantidadeElementos-1){
+    if (pos == quantidadeElementos){
         return fim->getDado();
     }
 

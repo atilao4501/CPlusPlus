@@ -15,7 +15,7 @@ public:
     int funcaoHash(int chave);
     void inserir(afa::LLDE<aluno> L[],aluno aluno);
     void remover(afa::LLDE<aluno> L[],aluno aluno);
-    aluno busca(afa::LLDE<aluno> L[], std::string valor);
+    aluno busca(afa::LLDE<aluno> L[], std::string nome, std::string mae, std::string mat);
     void imprimir(afa::LLDE<aluno> L[]);
 
     void setTam(int newTam);

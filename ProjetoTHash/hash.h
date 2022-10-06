@@ -4,13 +4,14 @@
 #include <llse.h>
 
 
+
 class hash
 {
 private:
     int tam;
     hlb::LLSE *tabela;
 public:
-    hash(int tamanho);
+    hash();
     ~hash();
 
     int funcaoHash(int chave);

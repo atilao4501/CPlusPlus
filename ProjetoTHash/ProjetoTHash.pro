@@ -12,7 +12,8 @@ SOURCES += \
         hash.cpp \
         llse.cpp \
         main.cpp \
-        no.cpp
+        no.cpp \
+        testahash.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -23,4 +24,5 @@ HEADERS += \
     aluno.h \
     hash.h \
     llse.h \
-    no.h
+    no.h \
+    testahash.h

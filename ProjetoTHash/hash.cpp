@@ -1,19 +1,11 @@
 #include "hash.h"
 #include <iostream>
 
-hash::hash(int tamanho):
+hash::hash():
     tam(0),
     tabela(0)
 
-{
-
-    try {
-        setTam(tamanho);
-        tabela = new hlb::LLSE[tam];
-
-    }  catch (std::bad_alloc&) {
-        throw std::string("Memoria insuficiente");
-    }
+{   
 
 }
 
@@ -33,6 +25,12 @@ void hash::setTam(int newTam)
         std::cin >> newTam;
     }
     tam = newTam;
+    try {
+        tabela = new hlb::LLSE[tam];
+
+    }  catch (std::bad_alloc&) {
+        throw std::string("Memoria insuficiente");
+    }
 }
 
 int hash::funcaoHash(int chave){

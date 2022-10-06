@@ -10,7 +10,9 @@ CONFIG -= app_bundle
 SOURCES += \
         aluno.cpp \
         hash.cpp \
-        main.cpp
+        llse.cpp \
+        main.cpp \
+        no.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -20,5 +22,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     aluno.h \
     hash.h \
-    lldetemplate.h \
-    notemplate.h
+    llse.h \
+    no.h

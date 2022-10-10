@@ -5,16 +5,20 @@
 testaHash::testaHash(int tamanho)
 {
     objeto.setTam(tamanho);
+    tam = tamanho;
 }
 void testaHash::consulta(){
     std::string nome,mae,mat;
 
     std::cout << "Insira os dados do aluno a ser buscado(Nome, Mae, Matricula) ";
-    std::cin >> nome >> mae >> mat;
+    std::cin.ignore();
+    getline(std::cin, nome);
+    getline(std::cin, mae);
+    getline(std::cin, mat);
 
     if(objeto.busca(nome,mae,mat).getMatricula() != "naoexiste"){
         aluno alunoaux = objeto.busca(nome,mae,mat);
-        std::cout << "\nIndice Gerado: " << (nome+mae).size()%31 << "\n";
+        std::cout << "\nIndice Gerado: " << (nome+mae).size()%tam << "\n";
         std::cout << alunoaux.getNome() << " " << alunoaux.getMae() << " " << alunoaux.getMatricula() << " " << alunoaux.getEndereco();
 
     }
@@ -27,7 +31,13 @@ void testaHash::insere(){
     std::string nome,mae,mat,ende;
 
     std::cout << "Insira os dados do aluno a ser inserido(Nome, Mae, Matricula, Endereco) ";
-    std::cin >> nome >> mae >> mat >> ende;
+
+    std::cin.ignore();
+    getline(std::cin, nome);
+    getline(std::cin, mae);
+    getline(std::cin, mat);
+    getline(std::cin, ende);
+
     aluno alunoaux(nome,mae,mat,ende);
     objeto.inserir(alunoaux);
 }
@@ -36,11 +46,17 @@ void testaHash::remove(){
     std::string nome,mae,mat;
 
     std::cout << "Insira os dados do aluno a ser Removido(Nome, Mae, Matricula) ";
-    std::cin >> nome >> mae >> mat;
+    std::cin.ignore();
+    getline(std::cin, nome);
+    getline(std::cin, mae);
+    getline(std::cin, mat);
+    aluno alunoaux = objeto.remover(nome,mae,mat);
 
-    if(objeto.remover(nome,mae,mat)){
-        std::cout << "\nIndice Gerado: " << (nome+mae).size()%31 << "\n";
-        std::cout << "O elemento foi removido";
+    if(alunoaux.getMatricula() != "naoexiste"){
+
+        std::cout << "\nIndice Gerado: " << (nome+mae).size()%tam << "\n";
+        std::cout << "O elemento foi removido: " << alunoaux.getNome() << " " << alunoaux.getMae() << " " << alunoaux.getMatricula() << " " << alunoaux.getEndereco();
+
 
     }
     else {

@@ -39,7 +39,7 @@ int hash::funcaoHash(int chave){
 
 void hash::inserir(aluno aluno){
     int id = funcaoHash((aluno.getNome()+aluno.getMae()).size());
-    tabela[id].inserirFim(aluno);
+    tabela[id].inserirFim(&aluno);
 
 }
 
@@ -55,16 +55,18 @@ aluno hash::busca(std::string nome,std::string mae,std::string mat){
     return naodeu;
 
 }
-bool hash::remover(std::string nome, std::string mae, std::string mat){
+aluno hash::remover(std::string nome, std::string mae, std::string mat){
     int id = funcaoHash((nome+mae).size());
+    class aluno aux("","","naoexiste","");
     for(int i = 0; i < tabela[id].getQuantidadeElemento(); i++){
         if(nome == tabela[id].acessar(i).getNome() && mae == tabela[id].acessar(i).getMae() && mat == tabela[id].acessar(i).getMatricula()){
+            aux = tabela[id].acessar(i);
             tabela[id].retirarQualquer(i);
-            return true;
+            return aux;
         }
 
     }
-    return false;
+    return aux;
 
 }
 
@@ -73,7 +75,7 @@ void hash::imprimir(){
     for (int i = 0; i < tam; i++){
         std::cout << "Indice = " << i << " ";
         for(int j = 0; j < tabela[i].getQuantidadeElemento(); j++){
-            std::cout << " " << tabela[i].acessar(j).getNome() << " " << tabela[i].acessar(j).getMae() << " " << tabela[i].acessar(j).getMatricula() << " " << tabela[i].acessar(j).getEndereco() << " FIM ";
+            std::cout << " " << tabela[i].acessar(j).getNome() << " : " << tabela[i].acessar(j).getMae() << " : " << tabela[i].acessar(j).getMatricula() << " : " << tabela[i].acessar(j).getEndereco() << " // ";
         }
         std::cout << "\n";
     }

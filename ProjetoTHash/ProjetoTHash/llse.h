@@ -13,8 +13,8 @@ private:
 public:
     LLSE();
     ~LLSE();
-    void inserirInicio(aluno elemento);
-    void inserirFim(aluno elemento);
+    void inserirInicio(aluno *elemento);
+    void inserirFim(aluno *elemento);
 
 
     int getQuantidadeElemento() const;

@@ -22,9 +22,9 @@ bool LLSE::estaVazia() const{
     return quantidadeElemento == 0;
 }
 
-void LLSE::inserirInicio(aluno elemento){
+void LLSE::inserirInicio(aluno *elemento){
     try {
-        NO *pAux = new NO(elemento);
+        NO *pAux = new NO(*elemento);
         pAux->setProximo(inicio);
         inicio = pAux;
         quantidadeElemento++;
@@ -33,10 +33,10 @@ void LLSE::inserirInicio(aluno elemento){
     }
 }
 
-void LLSE::inserirFim(aluno elemento)
+void LLSE::inserirFim(aluno *elemento)
 {
     try {
-        NO *novo = new NO(elemento);
+        NO *novo = new NO(*elemento);
         if(estaVazia()){
             inicio = novo;
             quantidadeElemento++;

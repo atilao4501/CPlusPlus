@@ -4,6 +4,8 @@
 
 class testaHash
 {
+private:
+    int tam;
     hash objeto;
 public:
     testaHash(int tamanho);

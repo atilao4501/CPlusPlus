@@ -18,7 +18,7 @@ public:
     void inserir(aluno aluno);
 
     aluno busca(std::string nome,std::string mae,std::string mat);
-    bool remover(std::string nome,std::string mae,std::string mat);
+    aluno remover(std::string nome,std::string mae,std::string mat);
     void imprimir();
 
     void setTam(int newTam);
